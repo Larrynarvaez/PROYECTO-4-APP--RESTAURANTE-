@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import {db} from '../assets/firebase';
-import { collection, getDocs, addDoc, deleteDoc, doc } from 'firebase/firestore/lite';
+import { collection, addDoc } from 'firebase/firestore/lite';
 
 function Reservations(props) {
     const [reserva, setReserva] = useState({
@@ -34,32 +34,34 @@ function Reservations(props) {
     };
 
     return (
-    <div className="reservaciones-container">
-      <h2>Formulario de Reservaciones</h2>
-      <form onSubmit={handleSubmit}>
-            <div className="form-group">
-                <label htmlFor="nombre">Nombre:</label>
-                <input value={reserva.nombre} onChange={handleChange} type="text" id="nombre" name="nombre" />
-            </div>
+    <div className='reservaciones-body'>    
+        <div className="reservaciones-container">
+        <h2>Formulario de Reservaciones</h2>
+        <form onSubmit={handleSubmit}>
+                <div className="form-group">
+                    <label htmlFor="nombre">Nombre:</label>
+                    <input value={reserva.nombre} onChange={handleChange} type="text" id="nombre" name="nombre" />
+                </div>
 
-            <div className="form-group">
-                <label htmlFor="fecha">Fecha:</label>
-                <input value={reserva.fecha} onChange={handleChange} type="date" id="fecha" name="fecha" />
-            </div>
+                <div className="form-group">
+                    <label htmlFor="fecha">Fecha:</label>
+                    <input value={reserva.fecha} onChange={handleChange} type="date" id="fecha" name="fecha" />
+                </div>
 
-            <div className="form-group">
-                <label htmlFor="hora">Hora:</label>
-                <input value={reserva.hora} onChange={handleChange} type="time" id="hora" name="hora" />
-            </div>
+                <div className="form-group">
+                    <label htmlFor="hora">Hora:</label>
+                    <input value={reserva.hora} onChange={handleChange} type="time" id="hora" name="hora" />
+                </div>
 
-            <div className="form-group">
-                <label htmlFor="detalles">Detalles:</label>
-                <textarea value={reserva.detalles} onChange={handleChange} id="detalles" name="detalles" rows="4"></textarea>
-            </div>
+                <div className="form-group">
+                    <label htmlFor="detalles">Detalles:</label>
+                    <textarea value={reserva.detalles} onChange={handleChange} id="detalles" name="detalles" rows="4"></textarea>
+                </div>
 
-            <button type="submit">Enviar Reserva</button>
-      </form>
-    </div>
+                <button type="submit">Enviar Reserva</button>
+        </form>
+        </div>
+    </div>   
     );
 }
 

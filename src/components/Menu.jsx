@@ -24,6 +24,7 @@ function Menu(props) {
                         <h2>{alimento.item}</h2>
                         <h2>{alimento.precio}</h2>
                         <p>{alimento.descripcion}</p>
+                        <img className="cardimg"src={alimento.imagen} />
                     </div>
                 );
             })}
